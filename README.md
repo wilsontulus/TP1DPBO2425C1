@@ -9,6 +9,7 @@ Aamiin.
 
 ## Penjelasan Desain dan Code Flow
 
+![Peta UML untuk kelas Barang](docs/uml_class_barang.svg)
 
 ## Dokumentasi jalannya kode program
 
