@@ -15,7 +15,7 @@ Aamiin.
 
 C++:
 
-![Preview C++](docs/preview_cplusplus.mp4)
+![Preview C++](docs/preview_cplusplus.webp)
 
 Java:
 
