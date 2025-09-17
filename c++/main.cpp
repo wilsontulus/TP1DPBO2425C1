@@ -30,6 +30,7 @@ int main() {
 
     // Tampilkan menu hingga angka 0
     while (choiceNum != 0) {
+        // Kumpulan menu
         cout << "Menu Pilihan: " << endl;
         cout << "1. Tambah Barang" << endl;
         cout << "2. Tampilkan List Barang" << endl;
@@ -38,17 +39,20 @@ int main() {
         cout << "5. Cari Barang berdasarkan Nama Barang" << endl;
         cout << "0. Keluar dari program" << endl << endl;
         cout << "Masukkan angka pilihan: ";
+
+        // Minta input masukan menu
         cin >>choiceNum;
 
         // Variable untuk input
         int tempId, tempStock;
         string tempName, tempDesc, tempType;
+
+        // Variable untuk hitungan tampilan barang dan pilihan atribut update
         int tempSuccessfulQueries = 0, tempUpdateSelection = 0;
-        char ch;
 
         // Pilihan menu
         switch(choiceNum) {
-            case 1: // tambah data
+            case 1: // Tambah data baru (Nama, deskripsi, tipe, stok)
                 cout << "Masukkan nama barang: ";
                 cin >>tempName;
 
@@ -61,34 +65,51 @@ int main() {
                 cout << "Masukkan stok barang: ";
                 cin >>tempStock;
 
-                // tambah data
+                // Set data sesuai input
                 objekBarang[idCounter].setId(idCounter);
                 objekBarang[idCounter].setNama(tempName);
                 objekBarang[idCounter].setDeskripsi(tempDesc);
                 objekBarang[idCounter].setTipe(tempType);
                 objekBarang[idCounter].setStok(tempStock);
 
+                // Tampilkan bahwa proses penambahan barang baru sudah selesai
                 cout << "Sukses menambahkan barang dengan ID " << idCounter << endl;
+
+                // Naikkan penghitung 1 poin
                 idCounter++;
                 break;
-            case 2: // tampilkan list
+            case 2: // Tampilkan seluruh list barang dengan ID 0 keatas
                 cout << "List barang yang tersedia:" << endl;
+
+                // Query seluruh array barrang
                 for (int i = 0; i < max; i++) {
                     if (objekBarang[i].getId() >= 0) {
                         cout << "ID: " << objekBarang[i].getId() << endl;
                         cout << "Nama: " << objekBarang[i].getNama() << endl;
                         cout << "Deskripsi: " << objekBarang[i].getDeskripsi() << endl;
                         cout << "Tipe: " << objekBarang[i].getTipe() << endl;
-                        cout << "Stok: " << objekBarang[i].getStok() << endl << endl;
+
+                        // Untuk stok barang, tampilkan kata "Habis" jika stok di angka 0 atau dibawahnya.
+                        // Double newline untuk menyisakan ruang menu selanjutnya
+                        if (objekBarang[i].getStok() > 0) {
+                            cout << "Stok: " << objekBarang[i].getStok() << endl << endl;
+                        } else {
+                            cout << "Stok: " << objekBarang[i].getStok() << " (Habis)" << endl << endl;
+                        }
+
+                        // Naikkan penghitung untuk indikasi adanya barang
                         tempSuccessfulQueries++;
                     }
                 };
 
+                // Jika tidak ada barang tersedia, tampilkan bahwa tidak ada barang yang tersedia.
+                // Double newline untuk menyisakan ruang menu selanjutnya
                 if (tempSuccessfulQueries == 0) {
                     cout << "Kosong" << endl << endl;
                 };
                 break;
             case 3: // update data
+                // Tampilkan list menu atribut
                 cout << "Menu Update Atribut" << endl;
                 cout << "1. Nama" << endl;
                 cout << "2. Deskripsi" << endl;
@@ -96,6 +117,8 @@ int main() {
                 cout << "4. Stok" << endl;
                 cout << "0. Semua atribut" << endl;
                 cout << "Pilih atribut untuk diubah: ";
+
+                // Minta nomor untuk pilihan atribut yang diubah
                 cin >> tempUpdateSelection;
 
                 if (tempUpdateSelection >= 0 && tempUpdateSelection <= 4) {
@@ -175,18 +198,14 @@ int main() {
                     cout << "Deskripsi: " << objekBarang[tempId].getDeskripsi() << endl;
                     cout << "Tipe: " << objekBarang[tempId].getTipe() << endl;
                     cout << "Stok: " << objekBarang[tempId].getStok() << endl << endl;
+                } else { // Tidak ada barang dengan ID tersebut
+                    cout << "Tidak dapat menemukan barang dengan ID " << tempId << endl;
                 }
                 break;
-            case 0:
+            case 0: // Keluar program
                 cout << "Program selesai digunakan." << endl;
                 break;
         }
-
-        if (choiceNum == 2) {
-            cout << "Tekan tombol Enter untuk melanjutkan." << endl;
-
-            cin.get();
-        };
     };
 
     // Selesai

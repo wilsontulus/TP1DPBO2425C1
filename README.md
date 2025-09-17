@@ -15,6 +15,8 @@ Aamiin.
 
 C++:
 
+![Preview C++](docs/preview_cplusplus.mp4)
+
 Java:
 
 Python:
