@@ -18,7 +18,11 @@
 // Deklarasi konstruktor, selalu dari ID -1
 // untuk menandakan barang yang belum diisi
 Barang::Barang() {
-    id = -1;
+    this->id = -1;
+    this->nama = "";
+    this->deskripsi = "";
+    this->tipe = "";
+    this->stok = 0;
 };
 
 // Fungsi setter untuk menentukan ID barang
