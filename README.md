@@ -35,12 +35,15 @@ Untuk versi CLI memiliki menu sebagai berikut:
 
 Untuk C++, Java, dan Python, menggunakan CLI dan memiliki tampilan antarmuka yang sama. Terdapat ketentuan operasional untuk versi CLI:
 
-1. Penyimpanan barang menggunakan Array of Objects, dan memiliki batas sebanyak 1024 barang yang berbeda.
-2. Update barang bisa memilih satu atribut, atau seluruh atribut sekaligus.
-3. Menghapus barang tidak akan mensortir ulang ID barang yang ada.
-4. Pencarian barang dilakukan berdasarkan kandungan string inputan di nama barang.
+- Penyimpanan barang menggunakan Array of Objects, dan memiliki batas sebanyak 1024 barang yang berbeda.
+- Update barang bisa memilih satu atribut, atau seluruh atribut sekaligus.
+- Menghapus barang tidak akan mensortir ulang ID barang yang ada.
+- Pencarian barang dilakukan berdasarkan kandungan string inputan di nama barang.
+
+Untuk PHP, menggunakan Web GUI dan memiliki tampilan antarmuka berupa tabel. Data disimpan dalam satu sesi saja dan tidak menggunakan sistem manajemen basis data seperti MariaDB dan sejenisnya.
 
 ## Preview operasional program
+
 C++:
 
 ![Preview C++](docs/preview_cplusplus.webp)

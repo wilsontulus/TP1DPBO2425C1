@@ -416,3 +416,13 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Java compiles
+*.class
+*.jar
+
+# C++ compiles
+*.bin
+*.o
+*.out
+main
