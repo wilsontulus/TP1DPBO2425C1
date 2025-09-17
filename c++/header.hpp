@@ -13,7 +13,6 @@
 /* Deklarasi header */
 #include <iostream>
 #include <string>
-#include <unistd.h>
 
 /* Deklarasi tipe namespace */
 

@@ -128,6 +128,8 @@ int main() {
                     // Lanjutkan bila ID barang valid
                     if (objekBarang[tempId].getId() >= 0) {
 
+                        // Lakukan operasi update atribut sesuai pilihan di menu,
+                        // atau seluruh atribut bila memilih pilihan 0 (semua atribut)
                         if (tempUpdateSelection >= 0 || tempUpdateSelection <= 4) {
                             if (tempUpdateSelection == 1 || tempUpdateSelection == 0) {
                                 cout << "Masukkan nama barang: ";
@@ -153,54 +155,68 @@ int main() {
                                 objekBarang[tempId].setStok(tempStock);
                             }
 
+                            // Umumkan bahwa data barang sudah di-update
                             cout << "Sukses mengupdate data dari " << objekBarang[tempId].getNama() << " dengan ID " << tempId << endl;
-                        } else {
+                        } else { // Abaikan bila pilihan tidak valid
                             cout << "Pilihan atribut tidak valid" << endl;
                         }
-                    } else {
+                    } else { // Batalkan jika ID barang tidak tersedia
                         cout << "ID barang tidak tersedia" << endl;
                     };
-                } else {
+                } else { // Batalkan jika pilihan tidak sesuai
                     cout << "Pilihan tidak tersedia" << endl;
                 }
 
                 break;
-            case 4: // delete data
+            case 4: // Hapus barang berdasarkan ID
 
+                // Minta input ID barang
                 cout << "Masukkan ID barang: ";
                 cin >> tempId;
 
                 // Lanjutkan bila ID barang valid
                 if (objekBarang[tempId].getId() >= 0) {
+                    // Simpan nama untuk ditampilkan
                     tempName = objekBarang[tempId].getNama();
+
+                    // Lakukan operasi hapus objek barang
                     objekBarang[tempId].clear();
+
+                    // Umumkan jika berhasil tanpa error
                     cout << "Sukses menghapus " << tempName << " dengan ID " << tempId << endl;
-                } else {
+                } else { // Abaikan jika tidak tersedia
                     cout << "ID barang tidak tersedia" << endl;
                 }
 
                 break;
-            case 5:
+            case 5: // Pencarian berdasarkan nama barang
+                // Minta input nama barang yang dicari
                 cout << "Masukkan nama barang yang ingin dicari: ";
                 cin >> tempName;
 
+                // Inisialisasi variabel ID penentu
                 tempId = -1;
 
+                // Pencarian nama barang ke seluruh array
+
                 for (int i = 0; i < max; i++) {
+                    // Set variabel Id penentu jika ditemukan barang dengan nama yang mengandung string ditentukan, dan juga belum "dihapus"
                     if (objekBarang[i].getId() >= 0 && objekBarang[i].getNama().find(tempName) != tempName.npos) {
                         tempId = objekBarang[i].getId();
                     };
                 };
 
+                // Jika ditemukan barang dengan nama string yang ditentukan, tampilkan barang tersebut
                 if (tempId >= 0) {
                     cout << "Sukses menemukan barang dengan ID " << tempId << endl;
                     cout << "Nama: " << objekBarang[tempId].getNama() << endl;
                     cout << "Deskripsi: " << objekBarang[tempId].getDeskripsi() << endl;
                     cout << "Tipe: " << objekBarang[tempId].getTipe() << endl;
                     cout << "Stok: " << objekBarang[tempId].getStok() << endl << endl;
-                } else { // Tidak ada barang dengan ID tersebut
-                    cout << "Tidak dapat menemukan barang dengan ID " << tempId << endl;
+                } else { // Beritahu juga jika tidak ada barang dengan nama yang mengandung string yang ditentukan
+                    cout << "Tidak dapat menemukan barang dengan nama yang mengandung \"" << tempName << "\"" << endl;
                 }
+
                 break;
             case 0: // Keluar program
                 cout << "Program selesai digunakan." << endl;
