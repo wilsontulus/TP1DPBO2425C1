@@ -199,10 +199,10 @@ int main() {
                 for (int i = 0; i < max; i++) {
                     // Set variabel Id penentu jika ditemukan barang dengan nama yang mengandung string ditentukan, dan juga belum "dihapus"
                     if (objekBarang[i].getId() >= 0 && objekBarang[i].getNama().find(tempName) != tempName.npos) {
-                        cout << "ID: " << objekBarang[tempId].getId() << endl;
-                        cout << "Nama: " << objekBarang[tempId].getNama() << endl;
-                        cout << "Deskripsi: " << objekBarang[tempId].getDeskripsi() << endl;
-                        cout << "Tipe: " << objekBarang[tempId].getTipe() << endl;
+                        cout << "ID: " << objekBarang[i].getId() << endl;
+                        cout << "Nama: " << objekBarang[i].getNama() << endl;
+                        cout << "Deskripsi: " << objekBarang[i].getDeskripsi() << endl;
+                        cout << "Tipe: " << objekBarang[i].getTipe() << endl;
                         
                         // Untuk stok barang, tampilkan kata "Habis" jika stok di angka 0 atau dibawahnya.
                         // Double newline untuk menyisakan ruang menu selanjutnya
