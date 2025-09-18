@@ -53,6 +53,8 @@ C++:
 
 Java:
 
+![Preview Java](docs/preview_java.webp)
+
 Python:
 
 PHP:
