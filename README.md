@@ -57,4 +57,6 @@ Java:
 
 Python:
 
+![Preview Python](docs/preview_python.webp)
+
 PHP:
