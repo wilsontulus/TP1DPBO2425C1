@@ -105,7 +105,7 @@ public class Main {
                     } else {
                         System.out.println("List barang yang tersedia:");
 
-                        // Query seluruh list barrang
+                        // Query seluruh list barang
                         for (int i = 0; i < listObjekBarang.size(); i++) {
                             if (listObjekBarang.get(i).getID() >= 0) {
                                 System.out.println("ID: " + listObjekBarang.get(i).getID());

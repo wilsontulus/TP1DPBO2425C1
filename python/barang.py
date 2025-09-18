@@ -29,16 +29,16 @@ class Barang:
     def setNama(self, nama: str) -> None:
         self._nama = str(nama)
 
-    def setAlamat(self, alamat: str) -> None:
-        self._alamat = str(alamat)
+    def setDeskripsi(self, deskripsi: str) -> None:
+        self._deskripsi = str(deskripsi)
 
-    def setNoKTP(self, noKTP: str) -> None:
-        self._noKTP = str(noKTP)
+    def setTipe(self, tipe: str) -> None:
+        self._tipe = str(tipe)
 
     def setStok(self, stok: int) -> None:
         self._stok = int(stok)
 
-    def clear(self) -> None:
+    def clear(self) -> None: # Hapus data, balik lagi jadi kosong dan ID -1
         self._id = -1
         self._nama = ""
         self._deskripsi = ""
