@@ -194,25 +194,32 @@ int main() {
                 cout << "Masukkan nama barang yang ingin dicari: ";
                 cin >> tempName;
 
-                // Inisialisasi variabel ID penentu
-                tempId = -1;
-
                 // Pencarian nama barang ke seluruh array
 
                 for (int i = 0; i < max; i++) {
                     // Set variabel Id penentu jika ditemukan barang dengan nama yang mengandung string ditentukan, dan juga belum "dihapus"
                     if (objekBarang[i].getId() >= 0 && objekBarang[i].getNama().find(tempName) != tempName.npos) {
-                        tempId = objekBarang[i].getId();
+                        cout << "ID: " << objekBarang[tempId].getId() << endl;
+                        cout << "Nama: " << objekBarang[tempId].getNama() << endl;
+                        cout << "Deskripsi: " << objekBarang[tempId].getDeskripsi() << endl;
+                        cout << "Tipe: " << objekBarang[tempId].getTipe() << endl;
+                        
+                        // Untuk stok barang, tampilkan kata "Habis" jika stok di angka 0 atau dibawahnya.
+                        // Double newline untuk menyisakan ruang menu selanjutnya
+                        if (objekBarang[i].getStok() > 0) {
+                            cout << "Stok: " << objekBarang[i].getStok() << endl << endl;
+                        } else {
+                            cout << "Stok: " << objekBarang[i].getStok() << " (Habis)" << endl << endl;
+                        }
+
+                        // Naikkan penghitung jumlah barang yang ditemukan
+                        tempSuccessfulQueries++;
                     };
                 };
 
                 // Jika ditemukan barang dengan nama string yang ditentukan, tampilkan barang tersebut
-                if (tempId >= 0) {
-                    cout << "Sukses menemukan barang dengan ID " << tempId << endl;
-                    cout << "Nama: " << objekBarang[tempId].getNama() << endl;
-                    cout << "Deskripsi: " << objekBarang[tempId].getDeskripsi() << endl;
-                    cout << "Tipe: " << objekBarang[tempId].getTipe() << endl;
-                    cout << "Stok: " << objekBarang[tempId].getStok() << endl << endl;
+                if (tempSuccessfulQueries >= 0) {
+                    cout << "Sukses menemukan " << tempSuccessfulQueries << " barang dengan nama yang mengandung \"" << tempName << "\"" << endl;
                 } else { // Beritahu juga jika tidak ada barang dengan nama yang mengandung string yang ditentukan
                     cout << "Tidak dapat menemukan barang dengan nama yang mengandung \"" << tempName << "\"" << endl;
                 }

@@ -88,4 +88,3 @@ int Barang::getStok() {
 Barang::~Barang() {
     this->clear();
 };
-
